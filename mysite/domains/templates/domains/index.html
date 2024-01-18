@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'domains/style.css' %}">
+
+{% if domain_list %}
+    <ul>
+    {% for domain in domain_list %}
+    <li><a href="{% url 'domains:detail' domain.id %}">{{ domain.domain_url }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No domains are available.</p>
+{% endif %}
